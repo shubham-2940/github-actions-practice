@@ -1,0 +1,20 @@
+
+ server: 
+  name: sd-server
+  ip: 18.237.105.197 
+  port: 80
+
+database:
+  name: sd_db
+  host: localhost
+  credentials:
+    username: shubham_2940
+    password: shubham_pass
+
+startup_script: |
+  sudo apt update
+  sudo apt install nginx -y
+  sudo systemctl start nginx
+  
+description: >
+  This server file host production db and runs app.
