@@ -1,0 +1,13 @@
+name: hello
+
+on: workflow_dispatch
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Greeting message
+        run: echo "Hello grom Github Actions!"
