@@ -22,7 +22,7 @@ jobs:
       - name: Display Python Version
         run: python --version
 
-      - name: Error to check for windows
-        if: matrix.os == 'windows-latest'
+      - name: Error to check for macos
+        if: matrix.os == 'macos-latest'
         run: exit 1
         
