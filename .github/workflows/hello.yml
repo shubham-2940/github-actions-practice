@@ -1,6 +1,8 @@
 name: hello
 
-on: workflow-dispatch
+on: 
+  schedule:
+    - cron: '*/6 * * * *'
 
 jobs:
   greet:
