@@ -22,6 +22,7 @@ jobs:
       - name: Display Python Version
         run: python --version
 
-      - name: Error to check
-        run: lss -a
+      - name: Error to check for windows
+        if: matrix.os == 'windows-latest'
+        run: exit 1
         
