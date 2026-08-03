@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
     test:
-        runs-on: self-hosted
+        runs-on: [self-hosted, my-linux-runner]
 
         steps:
             - name: Display hostname of the machine
