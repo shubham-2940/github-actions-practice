@@ -9,6 +9,21 @@ jobs:
         steps:
             - name: Display OS Name
               run: echo "The operating system is ${{ runner.os }}"
+            
+            - name: Verify version installed or not
+              run: |
+                echo "== Docker Version =="
+                docker --version
+
+                echo "== Python Version =="
+                python --version
+
+                echo "== Git Version =="
+                git --version
+
+                echo "== Node Version =="
+                node --version
+                npm --version
     
     runner_windows:
         runs-on: windows-latest
