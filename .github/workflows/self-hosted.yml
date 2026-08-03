@@ -11,7 +11,7 @@ jobs:
               run: hostname
 
             - name: Working directory
-              run: echo "Working directory is:" pwd
+              run: pwd
 
             - name: Create a file  
               run: touch test.txt

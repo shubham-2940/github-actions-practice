@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
     runner_ubuntu:
         runs-on: ubuntu-latest
-
+        
         steps:
             - name: Display OS Name
               run: echo "The operating system is ${{ runner.os }}"
@@ -24,7 +24,7 @@ jobs:
                 echo "== Node Version =="
                 node --version
                 npm --version
-    
+
     runner_windows:
         runs-on: windows-latest
 
