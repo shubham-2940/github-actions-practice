@@ -13,6 +13,8 @@ jobs:
             - name: Working directory
               run: echo "Working directory is:" pwd
 
-            - name: Create a file and verify it exists
+            - name: Create a file  
               run: touch test.txt
-                   ls -l
+              
+            - name: Vefify file exits
+              run: ls -l
