@@ -9,11 +9,11 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - name: Install yamllint linter
-              run: pip install yamllint
+            - name: Install linter
+              run: pip install ruff
 
             - name: Run YAML Linter
-              run: yamllint .
+              run: ruff check .
 
     test:
         runs-on: ubuntu-latest
