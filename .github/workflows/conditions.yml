@@ -15,7 +15,7 @@ jobs:
               run: echo "This step runs only on main branch"
 
             - name: This step intetionally fails
-              run: lsss
+              run: exit 1
 
             - name: Run after failure
               if: failure()
