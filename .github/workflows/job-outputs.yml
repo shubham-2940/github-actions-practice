@@ -1,0 +1,24 @@
+name: job_outputs
+
+on: workflow_dispatch
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+
+        outputs:
+            transfer_data: ${{ steps.steps_data.outputs.generated_msg }}
+        
+        steps:
+            - id: steps_data
+              run: |
+                echo "generated_msg=Hello from Job1!" >> "$GITHUB_OUTPUT"
+    
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+
+        steps:
+            - name: Printing msg from Job1
+              run: |
+                echo "The message received is: ${{ needs.job1.outputs.transfer_data}}"
