@@ -1,6 +1,6 @@
 name: Conditions
 
-on: workflow_dispatch
+on: push
 
 jobs:
     conditional-job:
