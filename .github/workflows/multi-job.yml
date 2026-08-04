@@ -16,7 +16,7 @@ jobs:
 
         steps:
             - name: Testing message
-              run: echo "Testing the app"
+              run: lss 
         
     deploy:
         runs-on: ubuntu-latest
