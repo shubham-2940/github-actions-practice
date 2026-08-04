@@ -14,13 +14,6 @@ jobs:
               if: github.ref == 'refs/heads/main'
               run: echo "This step runs only on main branch"
 
-            - name: This step intetionally fails
-              run: exit 1
-
-            - name: Run after failure
-              if: failure()
-              run: echo "Previous step failed so this step running"
-
             - name: Continue on Error example
               continue-on-error: true
               run: echo "This step will fail but workflow continue." lss -l
