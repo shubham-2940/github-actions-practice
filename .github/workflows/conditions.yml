@@ -16,7 +16,7 @@ jobs:
 
             - name: Continue on Error example
               continue-on-error: true
-              run: echo "This step will fail but workflow continue." lss -l
+              run: exit 1
 
             - name: Final Step
               run: echo "Workflow continued after the error."
