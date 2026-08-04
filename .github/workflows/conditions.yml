@@ -1,6 +1,8 @@
 name: Conditions
 
-on: push
+on: 
+  push:
+  workflow_dispatch:
 
 jobs:
     conditional-job:
@@ -10,7 +12,7 @@ jobs:
         steps:
             - name: Runs only on main branch
               if: github.ref == 'refs/heads/main'
-              run: This step runs only on main branch
+              run: echo "This step runs only on main branch"
 
             - name: This step intetionally fails
               run: lsss
