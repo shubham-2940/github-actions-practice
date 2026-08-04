@@ -1,0 +1,43 @@
+name: Smart Pipeline
+
+on: push
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install yamllint linter
+              run: pip install yamllint
+
+            - name: Run YAML Linter
+              run: yamllint .
+
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: This is just test job
+              run: echo "Hello from Test Job!"
+    
+    summary:
+        needs: [lint, test]
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print branch info
+              run: |
+                if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+                   echo "✅ This is a main branch push."
+                else
+                   echo "🚀 This is a feature branch push."
+                fi
+
+            - name: Print commit message
+              run: |
+                echo "Commit message:"
+                ${{ github.event.commits[0].message }}
+
+              
