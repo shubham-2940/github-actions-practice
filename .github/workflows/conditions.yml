@@ -1,0 +1,27 @@
+name: Conditions
+
+on: workflow_dispatch
+
+jobs:
+    conditional-job:
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Runs only on main branch
+              if: github.ref == 'refs/heads/main'
+              run: This step runs only on main branch
+
+            - name: This step intetionally fails
+              run: lsss
+
+            - name: Run after failure
+              if: failure()
+              run: echo "Previous step failed so this step running"
+
+            - name: Continue on Error example
+              continue-on-error: true
+              run: echo "This step will fail but workflow continue." lss -l
+
+            - name: Final Step
+              run: echo "Workflow continued after the error."
