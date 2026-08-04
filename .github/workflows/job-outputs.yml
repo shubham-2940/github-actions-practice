@@ -12,7 +12,7 @@ jobs:
         steps:
             - id: steps_data
               run: |
-                echo "generated_msg=Hello from Job1!" >> "$GITHUB_OUTPUT"
+                echo "generated_msg=date" >> "$GITHUB_OUTPUT"
     
     job2:
         runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
         steps:
             - name: Printing msg from Job1
               run: |
-                echo "The message received is: ${{ needs.job1.outputs.transfer_data}}"
+                echo "Today's date is: ${{ needs.job1.outputs.transfer_data}}"
