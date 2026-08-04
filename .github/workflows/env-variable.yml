@@ -1,0 +1,27 @@
+name: env_variables
+
+on: workflow_dispatch
+
+#workflow level environment variable
+env:
+    APP_NAME: myapp
+    
+jobs:
+    variables:
+        runs-on: ubuntu-latest
+    
+        #Job level environment variable
+        env:
+            ENVIRONMENT: staging
+        
+        steps:
+            - name: Displaying all the variables
+            #step level envrionment variable
+              env:
+                 VERSION: 1.0.0
+
+              run:|
+                echo "Global: ${{ env.APP_NAME }}"
+                echo "Job: ${{ env.ENVIRONMENT }}"
+                echo "Step: ${{ env.VERSION }}"
+        
