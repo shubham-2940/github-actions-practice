@@ -12,7 +12,7 @@ jobs:
         steps:
             - id: steps_data
               run: |
-                echo "generated_msg=date" >> "$GITHUB_OUTPUT"
+                echo "generated_msg=$(date)" >> "$GITHUB_OUTPUT"
     
     job2:
         runs-on: ubuntu-latest
