@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install Dependencies
-        run: pip install -r test.txt
+        run: pip install -r requirements.txt
 
       - name: Verify Installation
         run: python -c "import requests; print('Requests installed successfully!')"
