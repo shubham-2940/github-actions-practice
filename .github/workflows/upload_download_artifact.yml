@@ -12,7 +12,7 @@ jobs:
             
             - name: Create a file
               run: | 
-                echo "Report file" >> report.txt
+                echo "Report file" > report.txt
                 echo "Build report" >> report.txt
 
             - name: Upload file artifact
