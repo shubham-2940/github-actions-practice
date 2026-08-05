@@ -1,6 +1,6 @@
 print("GitHub Actions is running successfully!")
 
-number = 10
+number = 0
 
 if number > 0:
     print("Test Passed")
