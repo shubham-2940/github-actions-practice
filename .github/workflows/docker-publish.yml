@@ -29,5 +29,5 @@ jobs:
                 context: .
                 push: true
                 tags: 
-                    shubham2940/githubactions:latest
-                    shubham2940/githubactions:sha-${{ github.sha }}
+                   shubham2940/githubactions:latest
+                   shubham2940/githubactions:sha-${{ github.sha }}
