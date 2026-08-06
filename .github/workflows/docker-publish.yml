@@ -29,5 +29,5 @@ jobs:
                 context: ./Dockerfile
                 push: true
                 tags: 
-                    ${{ secrets.DOCKER_USERNAME }}/py-demo:latest
-                    ${{ secrets.DOCKER_USERNAME }}/py-demo:sha-${{ github.sha }}
+                    shubham2940/py-demo:latest
+                    shubham2940/py-demo:sha-${{ github.sha }}
