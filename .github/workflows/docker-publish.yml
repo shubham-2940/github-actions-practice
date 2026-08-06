@@ -26,8 +26,8 @@ jobs:
             - name: Build and push docker image
               uses: docker/build-push-action@v5
               with:
-                context: ./Dockerfile
+                context: .
                 push: true
                 tags: 
-                    shubham2940/py-demo:latest
-                    shubham2940/py-demo:sha-${{ github.sha }}
+                    ${{ secrets.DOCKER_USERNAME }}/py-demo:latest
+                    ${{ secrets.DOCKER_USERNAME }}/py-demo:sha-${{ github.sha }}
