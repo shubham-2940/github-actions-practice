@@ -1,3 +1,5 @@
+[![Docker Publish](https://github.com/shubham-2940/github-actions-practice/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/shubham-2940/github-actions-practice/actions/workflows/docker-publish.yml)
+
 # Github Actions Practice
 
 # Concept 
