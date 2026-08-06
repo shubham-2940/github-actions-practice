@@ -22,12 +22,12 @@ jobs:
               #run: |
                 #echo "Username: ${{ secrets.DOCKER_USERNAME }}"
                 #echo "Short SHA: $SHORT_SHA"
-                
+            
             - name: Build and push docker image
               uses: docker/build-push-action@v5
               with:
                 context: .
                 push: true
-                tags: 
+                tags: |
                    shubham2940/githubactions:latest
                    shubham2940/githubactions:sha-${{ github.sha }}
