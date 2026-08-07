@@ -12,18 +12,37 @@ on:
           type: string
           default: staging
       
+      outputs:
+        my_workflow_output:
+          description: "An output to expose build version value"
+          value: ${{ jobs.expose_build.outputs.expose_build_output }}
+
       secrets:
         docker_token:
           required: true
 
 jobs:
+    expose_build:
+        runs-on: ubuntu-latest
+
+        outputs:
+            expose_build_output: ${{ steps.generate_output.outputs.version }}
+        
+        steps:
+            - name: Generate output value
+              id: generate_output
+              run: |
+                SHORT_SHA=$(git rev-parse --short HEAD)
+                echo "version=v1.0-$SHORT_SHA" >> $GITHUB_OUTPUT
+
+
     demo:
         runs-on: ubuntu-latest
 
         steps:
           - name: Checkout the code
             uses: actions/checkout@v4
-
+        
           - name: Display app name & environment
             run: |
                 echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
