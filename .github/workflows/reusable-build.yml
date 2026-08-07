@@ -29,6 +29,9 @@ jobs:
             expose_build_output: ${{ steps.generate_output.outputs.version }}
         
         steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+
             - name: Generate output value
               id: generate_output
               run: |
