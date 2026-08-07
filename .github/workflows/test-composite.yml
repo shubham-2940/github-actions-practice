@@ -15,9 +15,9 @@ jobs:
 
       - name: Run Composite Action
         id: greet
-        uses: ./.github-actions-practice/setup-and-greet
+        uses: ./.github/actions/setup-and-greet
         with:
-          name: "Suraj"
+          name: "Shubham"
           language: "en"
 
       - name: Print Output
