@@ -1,0 +1,39 @@
+name: Reusable Build
+
+on: 
+    workflow_call:
+      inputs:
+        app_name:
+          required: true
+          type: string
+
+        environment:
+          required: true
+          type: string
+          default: staging
+      
+      secrets:
+        docker_token:
+          required: true
+
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout the code
+            uses: actions/checkout@v4
+
+          - name: Display app name & environment
+            run: |
+                echo "Building ${{ inputs.app_name }} for ${{ inputs.environment }}"
+
+          - name: Check if Docker/GitHub Token is set
+            run: |
+                if [ -n "${{ secrets.GITHUB_TOKEN }}" ]; then
+                    echo "TOKEN_IS_SET=true"
+                else
+                    echo "TOKEN_IS_SET=false"
+                fi
+
+        
