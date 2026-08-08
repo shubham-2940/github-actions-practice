@@ -1,0 +1,35 @@
+name: PR Lifecycle
+
+on:
+    pull_request:
+        types: [opened, reopened, labeled, closed]
+
+jobs:
+    PR_Data:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
+
+            - name: Display which event type fired
+              run: echo "Fired event type is - ${{ github.event.action }}"
+
+            - name: Display PR title
+              run: echo "PR title is - ${{ github.event.pull_request.title }}"
+
+            - name: Display PR author
+              run: echo "PR author is - ${{ github.event.pull_request.user.login }}"
+
+            - name: Display source branch and target branch
+              run:  |
+                echo "Source branch (Head): $GITHUB_HEAD_REF"
+                echo "Target branch (Base): $GITHUB_BASE_REF"
+
+            - name: To check if PR is merged
+              run: |
+                if: github.event.pull_request.merged == true
+                    echo "PR is merged"
+                else
+                    echo "PR is not merged"
+                fi
